@@ -49,7 +49,7 @@ async def predict(request: Request):
         raise HTTPException(status_code=400, detail="Invalid image format.")
 
     # Run YOLO prediction
-    results = model.predict(img, conf=0.05, iou=0.8)
+    results = model.predict(img, conf=0.2, iou=0.8)
     boxes = results[0].boxes
 
     # Count the number of "person" detections
